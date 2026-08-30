@@ -31,6 +31,6 @@
     "search": { "lexical": ["title", "cardText"], "semantic": [] }
   }],
   "commands": [],
-  "contributes": { "items": [{ "id": "memory.sidebar", "kind": "view", "surface": "sidebar", "handler": "memory.workspace", "viewId": "memory.workspace", "icon": "app", "titleKey": "memory.open", "group": "knowledge", "order": 46 }] },
+  "contributes": { "items": [{ "id": "memory.sidebar", "kind": "view", "surface": "sidebar", "handler": "memory.workspace", "viewId": "memory.workspace", "icon": "tabler:cards", "titleKey": "memory.open", "group": "knowledge", "order": 46 }] },
   "activationEvents": []
 }
