@@ -1,6 +1,6 @@
 {
   "appId": "cloud.blinko.memory-cards",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minRuntimeApi": "1.0.0",
   "source": { "repository": "https://github.com/blinko-space/blinko-memory-cards", "revision": "0000000000000000000000000000000000000000" },
   "license": "MIT",
