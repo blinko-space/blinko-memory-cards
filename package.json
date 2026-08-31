@@ -6,14 +6,15 @@
   "packageManager": "bun@1.3.8",
   "scripts": {
     "dev": "blinko extension dev .",
-    "validate": "node ../../packages/cli/dist/blinko.mjs extension validate .",
-    "build": "node ../../packages/cli/dist/blinko.mjs extension build .",
-    "pack": "node ../../packages/cli/dist/blinko.mjs extension pack .",
+    "validate": "blinko extension validate .",
+    "build": "blinko extension build .",
+    "pack": "blinko extension pack .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
   "devDependencies": {
-    "@blinko-cloud/cli": "^0.2.0",
+    "@blinko-cloud/cli": "^0.2.1",
+    "@iconify/json": "2.2.503",
     "@types/node": "22.15.3",
     "@types/react": "18.3.31",
     "@types/react-dom": "18.3.7",
