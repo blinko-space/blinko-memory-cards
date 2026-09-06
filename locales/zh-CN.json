@@ -2,5 +2,6 @@
   "app.name": "Blinko 记忆卡",
   "app.summary": "提问、翻转、记住。",
   "app.description": "创建问题与答案卡组，通过 3D 翻转和轻量复习计划帮助记忆。",
-  "memory.open": "记忆卡"
+  "memory.open": "记忆卡",
+  "memory.aiCreate": "制作记忆卡"
 }

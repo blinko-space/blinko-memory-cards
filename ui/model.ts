@@ -29,3 +29,19 @@ export function reviewCard(card:Flashcard,grade:Grade,today=todayKey()):Flashcar
 }
 export const applyReview=(deck:Deck,cardId:string,grade:Grade,today=todayKey()):Deck=>({...deck,cards:deck.cards.map((card)=>card.id===cardId?reviewCard(card,grade,today):card)});
 export const dueCards=(deck:Deck,today=todayKey())=>deck.cards.filter((card)=>card.dueDate<=today);
+
+export function parseAiDeckDraft(value:string):Deck{
+  const raw=value.trim().replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/,"");
+  const source=JSON.parse(raw) as {title?:unknown;cards?:unknown};
+  if(!source||!Array.isArray(source.cards)||source.cards.length<1)throw new Error("INVALID_AI_DECK");
+  let deck=createDeck(String(source.title??""));
+  for(const item of source.cards.slice(0,100)){
+    if(!item||typeof item!=="object")continue;
+    const card=item as {question?:unknown;answer?:unknown;tags?:unknown};
+    const question=clean(card.question,4000),answer=clean(card.answer,8000);
+    if(!question||!answer)continue;
+    deck=addCard(deck,createCard({question,answer,tags:Array.isArray(card.tags)?card.tags.map(String):[]}));
+  }
+  if(!deck.cards.length)throw new Error("INVALID_AI_DECK");
+  return deck;
+}
