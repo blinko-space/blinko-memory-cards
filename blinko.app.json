@@ -1,15 +1,15 @@
 {
   "appId": "cloud.blinko.memory-cards",
-  "version": "0.1.2",
-  "minRuntimeApi": "1.0.0",
+  "version": "0.2.0",
+  "minRuntimeApi": "1.3.0",
   "source": { "repository": "https://github.com/blinko-space/blinko-memory-cards", "revision": "0000000000000000000000000000000000000000" },
   "license": "MIT",
   "contentHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
   "listing": { "nameKey": "app.name", "summaryKey": "app.summary", "descriptionKey": "app.description" },
-  "targets": { "web": { "entry": "src/index.ts", "minHostVersion": "1.1.0", "permissions": [], "optionalPermissions": [] } },
+  "targets": { "web": { "entry": "src/index.ts", "minHostVersion": "1.4.0", "permissions": [], "optionalPermissions": ["ai:generate"] } },
   "ui": { "minComponentsVersion": "1.0.0", "minTokensVersion": "1.0.0", "customViews": [{ "id": "memory.workspace", "entry": "ui/main.tsx", "width": 800, "height": 760, "minWidth": 280, "minHeight": 380 }] },
   "locales": { "default": "en", "supported": ["en", "zh-CN", "zh-TW"] },
-  "permissions": { "required": ["data:own:read", "data:own:write", "search:index:lexical"], "optional": [] },
+  "permissions": { "required": ["data:own:read", "data:own:write", "search:index:lexical"], "optional": ["ai:generate"] },
   "network": { "domains": [] },
   "oauth": { "redirectUris": [] },
   "dataTypes": [{
@@ -31,6 +31,9 @@
     "search": { "lexical": ["title", "cardText"], "semantic": [] }
   }],
   "commands": [],
-  "contributes": { "items": [{ "id": "memory.sidebar", "kind": "view", "surface": "sidebar", "handler": "memory.workspace", "viewId": "memory.workspace", "icon": "tabler:cards", "titleKey": "memory.open", "group": "knowledge", "order": 46 }] },
+  "contributes": { "items": [
+    { "id": "memory.sidebar", "kind": "view", "surface": "sidebar", "handler": "memory.workspace", "viewId": "memory.workspace", "icon": "tabler:cards", "titleKey": "memory.open", "group": "knowledge", "order": 46 },
+    { "id": "memory.ai-create", "kind": "view", "surface": "ai/tool", "handler": "memory.workspace", "viewId": "memory.workspace", "icon": "fluent-emoji-flat:index-pointing-up", "titleKey": "memory.aiCreate", "group": "creation", "order": 30 }
+  ] },
   "activationEvents": []
 }
